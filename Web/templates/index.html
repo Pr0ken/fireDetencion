@@ -2,18 +2,40 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detector de Incendios</title>
+    <title>Detección de Incendios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            text-align: center;
+        }
+        input[type="file"] {
+            margin-top: 1rem;
+        }
+        .resultado {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        img {
+            margin-top: 1rem;
+            max-width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sube una imagen para detectar incendios forestales</h1>
-    <form method="post" enctype="multipart/form-data">
+    <h1>Detector de Incendios en Imágenes</h1>
+    <form method="POST" enctype="multipart/form-data">
         <input type="file" name="imagen" accept="image/*" required>
-        <button type="submit">Analizar</button>
+        <br>
+        <button type="submit">Analizar Imagen</button>
     </form>
 
     {% if resultado %}
-        <h2>Resultado: {{ resultado }}</h2>
-        <img src="{{ imagen }}" alt="Imagen subida" width="300">
+    <div class="resultado">Resultado: {{ resultado }}</div>
+    <img src="{{ imagen }}" alt="Imagen subida">
     {% endif %}
 </body>
 </html>
